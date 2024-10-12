@@ -8,25 +8,18 @@
     width: 100%;
     z-index: 10;
     background: linear-gradient(to bottom, #B3E5FC, #81D4FA, #0288D1);
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Cinzel', sans-serif;
     font-style: normal;
     text-align: center;
     line-height: 1;
 }
 
 #title h1 {
-    display: inline-block;
-    /* Make the h1 behave like an inline block */
-    width: 100%;
-    /* Make the width of the text 100% */
-    letter-spacing: 0.2em;
-    /* Increase letter spacing to stretch letters */
+    letter-spacing: 0.3em;
     font-size: 3rem;
-    /* Adjust font size as needed */
     text-transform: uppercase;
-    /* Make text uppercase */
     margin: 0;
-    /* Remove default margin */
+    line-height: 1;
 }
 
 body {

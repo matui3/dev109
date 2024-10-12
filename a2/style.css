@@ -75,10 +75,12 @@ img {
     float: left;
 }
 
+footer {
+    margin: 0;
+    padding: 0;
+}
+
 #footer {
-    border: solid 1px;
-    padding: 10px;
-    margin: 10px;
     text-align: center;
     background: linear-gradient(to bottom, #B3E5FC, #81D4FA, #0288D1);
 }

@@ -7,16 +7,31 @@
     margin-bottom: 10px;
     width: 100%;
     z-index: 10;
-    background-color: rgb(155, 250, 250);
-    font-family: 'Lugrasimo';
-    font-weight: 400;
+    background: linear-gradient(to bottom, #B3E5FC, #81D4FA, #0288D1);
+    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     text-align: center;
+    line-height: 1;
+}
+
+#title h1 {
+    display: inline-block;
+    /* Make the h1 behave like an inline block */
+    width: 100%;
+    /* Make the width of the text 100% */
+    letter-spacing: 0.2em;
+    /* Increase letter spacing to stretch letters */
+    font-size: 3rem;
+    /* Adjust font size as needed */
+    text-transform: uppercase;
+    /* Make text uppercase */
+    margin: 0;
+    /* Remove default margin */
 }
 
 body {
     margin: 0;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/32/House_sparrow04.jpg");
+    background-image: url("imgs/marble.jpg");
 }
 
 .clear {
@@ -28,8 +43,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Japanese_Wave_Pattern.svg/800px-Japanese_Wave_Pattern.svg.png?20170526115251");
+    background-image: url("imgs/wood.jpg");
     padding: 1%;
+    text-align: center;
+    font-size: 0;
+    background-size: cover;
 }
 
 .row {
@@ -39,32 +57,37 @@ body {
 
 img {
     margin-left: 5px;
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.white, .black {
+    border: 1px solid black;
+    width: 10%;
+    height: 60px;
+    display: inline-block;
+    margin: 0;
 }
 
 .white {
-    border: 1px solid black;
-    width: 12%;
-    height: 60px;
-    float: left;
     background-color: white;
 }
 
 .black {
-    border: 1px solid black;
-    width: 12%;
-    height: 60px;
+    background-color: #787878
+}
+
+.empty-cell {
+    width: 16px;
+    height: 16px;
     float: left;
-    background-color: rgb(120, 120, 120);
 }
 
 #footer {
     border: solid 1px;
     padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     text-align: center;
-    background-color: rgb(155, 250, 250)
+    background: linear-gradient(to bottom, #B3E5FC, #81D4FA, #0288D1);
 }
 
 #footer img {

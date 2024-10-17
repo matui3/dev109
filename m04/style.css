@@ -1,0 +1,91 @@
+* {
+    font-family: Arial, Verdana, sans-serif;
+    color: #665544;
+    text-align: center;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(80, 55, 221);
+    background-image: url("imgs/valley.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#content {
+    overflow: auto;
+}
+
+h1 {
+    font-family: 'Righteous';
+}
+
+#nav,
+#feature,
+#footer {
+    margin: 1%;
+}
+
+.column1,
+.column2,
+.column3 {
+    width: 31.3%;
+    float: left;
+    margin: 1%;
+}
+
+.column1 {
+    background-color: #d4435c;
+}
+
+.column2 {
+    background-color: #ecddcd;
+}
+
+.column3 {
+    margin-right: 0%;
+    background-color: #52bb4e;
+}
+
+li {
+    display: inline;
+    padding: 0.5em;
+}
+
+#nav,
+#footer {
+    /* background-color: #884e15; */
+    /* background-color: #efefef; */
+    padding: 0.5em 0;
+}
+
+#nav {
+    background-color: #e28d38;
+}
+
+#footer {
+    background-color: #d2d445;
+}
+
+#feature,
+.article {
+    height: 10em;
+    margin-bottom: 1em;
+}
+
+#feature {
+    background-color: #4e6bbb;
+    /* background-image: url("imgs/gear_31.png"); */
+    position: relative;
+}
+
+#gear {
+    position: absolute;
+    float: right;
+    top: 0px;
+    height: 100%;
+    width: 12.5%;
+    right: 0px;
+    object-fit: contain;
+}

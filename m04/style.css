@@ -81,13 +81,3 @@ li {
     background-position: right;
     background-repeat: no-repeat;
 }
-
-#gear {
-    position: absolute;
-    float: right;
-    top: 0px;
-    height: 100%;
-    width: 12.5%;
-    right: 0px;
-    object-fit: contain;
-}

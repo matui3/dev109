@@ -10,7 +10,11 @@ body {
     background-color: rgb(80, 55, 221);
     background-image: url("imgs/valley.jpg");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 #content {

@@ -76,8 +76,10 @@ li {
 
 #feature {
     background-color: #4e6bbb;
-    /* background-image: url("imgs/gear_31.png"); */
-    position: relative;
+    background-image: url("imgs/gear_31.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
 }
 
 #gear {

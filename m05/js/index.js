@@ -1,5 +1,7 @@
-var table = Number(prompt("Create a multiplication table by writing a number 1-10"));             // Unit of table
-var i = 1;                 // Set counter to 1
+var table = Number(prompt("Create a multiplication table by writing a number 1-10"));
+var i = 1;
+
+// Set counter to 1
 var msg = '<h2>Multiplication Table</h2>';              // Message
 
 // Do multiplication

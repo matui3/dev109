@@ -49,6 +49,12 @@ header {
     height: 100px;
 }
 
+.column {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+}
+
 
 #footer { 
     background: #3f3f3f;

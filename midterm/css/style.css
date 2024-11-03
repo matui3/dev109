@@ -3,29 +3,33 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/tropical.jpg'); /* Add your background image */
-    background-size: cover; /* Cover the whole background */
-    color: black; /* Change text color for better visibility */
+    background-image: url('../images/tropical.jpg'); 
+    background-size: cover;
+    color: black;
 }
 
 #wrap {
     background-color: white;
+    border-radius: 1%;
     width: 90%;
     margin: 0 auto;
 }
 
-/* Header styles */
+/* Heading Style */
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for menu */
+    background-color: rgba(35, 28, 13, 0.7); /* Semi-transparent background for menu */
     padding: 10px 0;
+    border-radius: 1%;
 }
 
+
+/* Menu Styling */
 #topmenu {
-    background: #f1f1f1;
-    padding: 10px 20px;
-    border-bottom: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-    margin-top: 20px;
+    background: #e3b427;
+    padding: 10px 10px;
+    border-bottom: 1px solid #f74c4c;
+    border-top: 1px solid #f03636;
+    margin-top: 15px;
 }
 
 #topmenu ul {
@@ -39,6 +43,7 @@ header {
     padding: 0 20px 0 0;
 }
 
+/* Artifact items styling */
 .artifacts {
     margin: 50px auto;
 }
@@ -49,13 +54,25 @@ header {
     height: 100px;
 }
 
+/* Validation page styling */
+#validation {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
 .column {
     float: left;
     width: 45%;
     margin-right: 5%;
+    margin-left: 1%;
 }
 
+.imgvalidation {
+    width: 350px;
+    height: 200px;
+}
 
+/* footer styling */
 #footer { 
     background: #3f3f3f;
     color: #fff;
@@ -70,10 +87,6 @@ header {
     color: #fff; 
     text-decoration: none; 
     border-bottom: 1px dotted #fff; 
-}
-
-#footer a:hover { 
-    border-bottom: 1px dotted #ccc; 
 }
 
 .left { 

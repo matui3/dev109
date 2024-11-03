@@ -11,8 +11,8 @@ body {
 #container {
     background-color: white;
     border-radius: 1%;
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%; */
+    margin: 10px 5px;
 }
 
 /* Heading Style */
@@ -47,7 +47,18 @@ header {
 
 /* Artifact items styling */
 .artifacts {
-    margin: 50px auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artifactbox {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 400px; /* Width of each artifact box */
+    border: 0px solid #050202;
+    margin: 0 10px; /* Space between artifact boxes */
 }
 
 .artifactsimg {
@@ -60,12 +71,14 @@ header {
 #validation {
     margin-top: 20px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .column {
-    float: left;
     width: 45%;
-    margin-left: 1%;
+    margin: 0 2.5%;
 }
 
 .imgvalidation {

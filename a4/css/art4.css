@@ -55,6 +55,19 @@ body {
     height: 80px;
 }
 
+#zipcode-container {
+    display: none;
+}
+
+
+#feedback.warning {
+    background-image: url('../images/warning.png');
+}
+
+#feedback.tip {
+    background-image: url('../images/tip.png');
+}
+
 input[type="submit"] {
     padding: 10px 20px;
     background-color: #4CAF50;

@@ -14,103 +14,47 @@
             <label for='FirstName'>First Name:</label>
             <input type="text" id="FirstName" name="FirstName" required>
         </div>
-        <div class="warning" id="fname"></div>
+        <div class="feedback" id="fname"></div>
         <div class="form-group">
             <label for="LastName">Last Name:</label>
             <input type="text" id="LastName" name="LastName" required>
         </div>
-        <div class="warning" id="lname"></div>
+        <div class="feedback" id="lname"></div>
         <div class="form-group">
             <label for="Email">Email:</label>
             <input type="email" id="Email" name="Email" required>
         </div>
-        <div class="warning" id="emailWarning"></div>
+        <div class="feedback" id="email"></div>
         <div class="form-group">
             <label for="Phone">Phone:</label>
             <input type="tel" id="Phone" name="Phone" required>
         </div>
-        <div class="warning" id="numberWarning"></div>
+        <div class="feedback" id="phone"></div>
         <div class="form-group">
             <label for="Username">Username:</label>
             <input type="text" name="Username" id="Username" required>
         </div>
-        <div class="warning" id="username"></div>
+        <div class="feedback" id="username"></div>
         <div class="form-group">
             <label for="Password">Password:</label>
             <input type="password" name="Password" id="Password" required>
         </div>
-        <div class="warning" id="password"></div>
+        <div class="feedback" id="password"></div>
         <div class="form-group">
             <label for="Address">Address:</label>
             <input type="text" name="Address" id="Address" required>
         </div>
-        <div class="warning" id="address"></div>
+        <div class="feedback" id="address"></div>
         <div class="form-group">
             <label for="City">City:</label>
             <input type="text" name="City" id="City" required>
         </div>
-        <div class="warning" id="city"></div>
-        <div class="form-group">
-            <label for="State">State:</label>
-            <select name="State" id="State" required>
-                <option value="AL">AL</option>
-                <option value="AK">AK</option>
-                <option value="AZ">AZ</option>
-                <option value="AR">AR</option>
-                <option value="CA">CA</option>
-                <option value="CO">CO</option>
-                <option value="CT">CT</option>
-                <option value="DE">DE</option>
-                <option value="FL">FL</option>
-                <option value="GA">GA</option>
-                <option value="HI">HI</option>
-                <option value="ID">ID</option>
-                <option value="IL">IL</option>
-                <option value="IN">IN</option>
-                <option value="IA">IA</option>
-                <option value="KS">KS</option>
-                <option value="KY">KY</option>
-                <option value="LA">LA</option>
-                <option value="ME">ME</option>
-                <option value="MD">MD</option>
-                <option value="MA">MA</option>
-                <option value="MI">MI</option>
-                <option value="MN">MN</option>
-                <option value="MS">MS</option>
-                <option value="MO">MO</option>
-                <option value="MT">MT</option>
-                <option value="NE">NE</option>
-                <option value="NV">NV</option>
-                <option value="NH">NH</option>
-                <option value="NJ">NJ</option>
-                <option value="NM">NM</option>
-                <option value="NY">NY</option>
-                <option value="NC">NC</option>
-                <option value="ND">ND</option>
-                <option value="OH">OH</option>
-                <option value="OK">OK</option>
-                <option value="OR">OR</option>
-                <option value="PA">PA</option>
-                <option value="RI">RI</option>
-                <option value="SC">SC</option>
-                <option value="SD">SD</option>
-                <option value="TN">TN</option>
-                <option value="TX">TX</option>
-                <option value="UT">UT</option>
-                <option value="VT">VT</option>
-                <option value="VA">VA</option>
-                <option value="WA">WA</option>
-                <option value="WV">WV</option>
-                <option value="WI">WI</option>
-                <option value="WY">WY</option>
-                <option value="DC">DC</option>
-            </select>
-        </div>
-        <div class="warning" id="state"></div>
+        <div class="feedback" id="city"></div>
         <div class="form-group">
             <label for="Country">Country:</label>
             <select id="Country" name="Country" required>
-                <option value="US">United States</option>
+                <option value="">Select a country</option>
+                <option value="USA">United States</option>
                 <option value="UM">United States Minor Outlying Islands</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
@@ -315,14 +259,72 @@
                 <option value="ZW">Zimbabwe</option>
 
             </select>
-            <div class="warning" id="country"></div>
         </div>
-        <div class="form-group"id="zipcode-container" style="display:none;">
+        <div class="feedback" id="country"></div>
+        <div class="form-group">
+            <label for="State">State:</label>
+            <select name="State" id="State" disabled>
+                <option value="">Select a state</option>
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
+                <option value="DC">DC</option>
+            </select>
+        </div>
+        <div class="feedback" id="state"></div>
+        <div class="form-group"id="zipcode-container">
             <label for="Zipcode">Zipcode:</label>
             <input type="text" id="Zipcode" name="Zipcode" placeholder="Enter your zipcode" pattern="\d{5}"
                 title="Five digit zipcode" />
         </div>
-        <div class="warning" id="zipcode"></div>
+        <div class="feedback" id="zipcode"></div>
         <div class="form-group">
             <label for="comments">Comments:</label>
             <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Enter your comments here..."></textarea>
@@ -332,7 +334,7 @@
             <input type="submit" id="submit" name="submit" value="Submit">
         </div>
 
-        <div class="warning" id="submiterror"></div>
+        <div class="feedback" id="submiterror"></div>
 
     </form>
     

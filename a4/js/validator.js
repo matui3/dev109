@@ -8,6 +8,7 @@ function isValid() {
     }
 }
 
+
 // grab input field elements
 const FirstName = document.getElementById('FirstName');
 const LastName = document.getElementById('LastName');
@@ -33,6 +34,10 @@ CountrySelect.addEventListener('change', function() {
         StateSelect.value = '';
     }
 });
+
+// event listeners for focus
+
+
 
 // event listeners for blur
 FirstName.addEventListener('blur', validateFirstName, false);
@@ -100,7 +105,7 @@ function validateLastName() {
     } else if (lastName.length > 50) {
         errorMessages += "<p>The last name cannot be greater than 50 characters</p>";
     } else if (lastName.match("^[a-zA-Z ,.'-]+$") === null) {
-        errorMessages += "<p>TInvalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
+        errorMessages += "<p>Invalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
     } else {
         validLastName = true;
     }
@@ -191,10 +196,9 @@ function validateUserName() {
     return validUserName;
 }
 
-
 function validatePassword() {
 
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{1,7}$/;
 
 
     // initialize values
@@ -209,8 +213,8 @@ function validatePassword() {
         errorMessages += "<p>Password is required.</p>"
     } else if (password > 7) {
         errorMessages += "<p>Password cannot be greater than 7 characters.</p>"
-    } else if (password.match(regex)) {
-        errorMessages += "<p>Password must contain 1 upper, lower, 1 number and 1 special character.</p> "
+    } else if (!password.match(regex)) {
+        errorMessages += "<p>Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</p>";
     } else {
         validPassword = true;
     }
@@ -220,7 +224,6 @@ function validatePassword() {
     return validPassword;
     
 }
-
 
 function validateAddress() {
 

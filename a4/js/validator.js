@@ -63,6 +63,7 @@ StateSelect.addEventListener('blur', blurState);
 City.addEventListener('blur', blurCity);
 ZipCode.addEventListener('blur', blurZipCode);
 
+// event listener for phone as you're typing the number
 Phone.addEventListener('input', phoneInput)
 
 // Adding focus event listeners to each form field

@@ -132,6 +132,7 @@ function blurFirstName() {
     } else if (firstname.match("^[a-zA-Z ,.'-]+$")===null) {
         errorMessages += "<p>Invalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
     } else {
+        document.getElementById('fname') .style.backgroundImage = none;
         validFirstName = true;
     }
 
@@ -161,6 +162,7 @@ function blurLastName() {
     } else if (lastName.match("^[a-zA-Z ,.'-]+$") === null) {
         errorMessages += "<p>Invalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
     } else {
+        lname.style.display = none;
         validLastName = true;
     }
 
@@ -190,6 +192,7 @@ function blurEmail() {
     } else if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= userEmail.length) {
         errorMessages += "<p>Invalid email.</p>";
     } else {
+        email.style.display = none;
         validEmail = true;
     }
 
@@ -216,6 +219,7 @@ function blurPhone() {
     // Ensure phone number matches the expected format with dashes
     if (phoneNum.length >= 10 && phoneNum.length <= 15) {
         if (phoneRegex.test(phoneNum)) {
+            phone.style.display = none;
             validPhone = true;
         } else {
             errorMessages += "<p>Invalid phone number format. Please use dashes (-) as separators.</p>";
@@ -249,6 +253,7 @@ function blurUserName() {
     } else if (userName.length > 12) {
         errorMessages += "<p>Username cannot be longer than 12 characters.</p>";
     } else {
+        username.style.display = none;
         validUserName = true;
     }
 
@@ -281,6 +286,7 @@ function blurPassword() {
     } else if (!passWord.match(regex)) {
         errorMessages += "<p>Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</p>";
     } else {
+        password.style.display = none;
         validPassword = true;
     }
 
@@ -309,6 +315,7 @@ function blurAddress() {
     if (addressValue === "" || addressValue === null) {
         errorMessages += "<p>Address is required.</p>"
     } else {
+        address.style.display = none;
         validAddress = true;
     }
 
@@ -336,6 +343,7 @@ function blurCountry() {
     if (countryValue === "" || countryValue === null) {
         errorMessages += "<p>Country is required.</p>";
     } else {
+        country.style.display = none;
         validCountry = true;
     }
 

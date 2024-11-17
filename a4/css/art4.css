@@ -1,9 +1,15 @@
 #errorMessages, .feedback {
     color: red;
     font-weight: bold;
-    font-size: 11px;
-    margin-top: 5px;
+    font-size: 0.6em;
+    /* margin-top: 5px; */
 }
+
+.feedback {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
 
 body {
     display: flex;
@@ -20,18 +26,21 @@ body {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
-    width: 400px;
+    max-width: 600px;
+    box-sizing: border-box;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .form-group {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+    flex-direction: column;
+    margin-bottom: 5px;
 }
 
 .form-group label {
     width: 120px;
-    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .form-group input,
@@ -44,6 +53,20 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    /* Adds a subtle glow */
+    outline: none;
+}
+
+.form-group label:hover {
+    color: #4CAF50;
+    cursor: pointer;
 }
 
 .form-group select {
@@ -60,12 +83,20 @@ body {
 }
 
 
-#feedback.warning {
+.feedback.warning {
     background-image: url('../images/warning.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+    background-size: 20px 20px;
 }
 
-#feedback.tip {
+.feedback.tip {
     background-image: url('../images/tip.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+    background-size: 20px 20px;
 }
 
 input[type="submit"] {
@@ -77,7 +108,61 @@ input[type="submit"] {
     border-radius: 4px;
 }
 
+input[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 input[type="submit"]:hover {
     background-color: #45a049;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    #myform {
+        width: 90%;
+        /* padding: 15px; */
+    }
+
+    .form-group label {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+    .feedback {
+        font-size: 14px;
+        padding-left: 30px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #myform {
+        padding: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+        /* Slightly larger inputs for readability */
+    }
+
+    .feedback {
+        font-size: 16px;
+        /* Larger feedback messages */
+    }
+}

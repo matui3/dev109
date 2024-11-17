@@ -1,5 +1,5 @@
 function isValid() {
-    if (validateFirstName() && validateLastName() && validateEmail() && validatePhone() && validateUserName() && validatePassword() && validateAddress() && validateCountry() && validateState() && validateCity() && validateZipCode()) {
+    if (blurFirstName() && blurLastName() && blurEmail() && blurPhone() && blurUserName() && blurPassword() && blurAddress() && blurCountry() && blurState() && blurCity() && blurZipCode()) {
         return true;
     }  else {
         document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
@@ -23,6 +23,18 @@ const City = document.getElementById('City');
 const zipCodeContainer = document.getElementById('zipcode-container');
 const ZipCode = document.getElementById('Zipcode');
 
+// feedback div elements
+const fname = document.getElementById('fname')
+const lname = document.getElementById('lname')
+const email = document.getElementById('email')
+const phone = document.getElementById('phone')
+const username = document.getElementById('username')
+const password = document.getElementById('password')
+const address = document.getElementById('address')
+const city = document.getElementById('city')
+const country = document.getElementById('country')
+const state = document.getElementById('state')
+const zipcode = document.getElementById('zipcode')
 
 CountrySelect.addEventListener('change', function() {
     if (CountrySelect.value === "USA") {
@@ -35,25 +47,69 @@ CountrySelect.addEventListener('change', function() {
     }
 });
 
-// event listeners for focus
-
 
 
 // event listeners for blur
-FirstName.addEventListener('blur', validateFirstName, false);
-LastName.addEventListener('blur', validateLastName, false);
-Email.addEventListener('blur', validateEmail, false)
-Phone.addEventListener('blur', validatePhone, false);
-Username.addEventListener('blur', validateUserName, false);
-Password.addEventListener('blur', validatePassword, false);
-Address.addEventListener('blur', validateAddress, false);
-CountrySelect.addEventListener('blur', validateCountry, false);
-StateSelect.addEventListener('blur', validateState, false);
-City.addEventListener('blur', validateCity, false);
-ZipCode.addEventListener('blur', validateZipCode, false);
+
+FirstName.addEventListener('blur', blurFirstName);
+LastName.addEventListener('blur', blurLastName);
+Email.addEventListener('blur', blurEmail)
+Phone.addEventListener('blur', blurPhone);
+Username.addEventListener('blur', blurUserName);
+Password.addEventListener('blur', blurPassword);
+Address.addEventListener('blur', blurAddress);
+CountrySelect.addEventListener('blur', blurCountry);
+StateSelect.addEventListener('blur', blurState);
+City.addEventListener('blur', blurCity);
+ZipCode.addEventListener('blur', blurZipCode);
+
+Phone.addEventListener('input', phoneInput)
+
+// Adding focus event listeners to each form field
+
+FirstName.addEventListener('focus', focusFname);
+LastName.addEventListener('focus', focusLname);
+Email.addEventListener('focus', focusEmail);
+Phone.addEventListener('focus', focusPhone);
+Username.addEventListener('focus', focusUsername);
+Password.addEventListener('focus', focusPassword);
+Address.addEventListener('focus', focusAddress);
+City.addEventListener('focus', focusCity);
+CountrySelect.addEventListener('focus', focusCountry);
+StateSelect.addEventListener('focus', focusState);
+ZipCode.addEventListener('focus', focusZipcode);
 
 
-function validateFirstName() {
+function phoneInput() {
+    let phoneNum = Phone.value;
+
+    // Remove all non-digit characters
+    phoneNum = phoneNum.replace(/\D/g, '');
+
+    // Format phone number based on the length of the digits
+    if (phoneNum.length <= 3) {
+        // No dashes needed for the first 3 digits
+        phoneNum = phoneNum;
+    } else if (phoneNum.length <= 6) {
+        // Format as XXX-XXXX
+        phoneNum = phoneNum.replace(/(\d{3})(\d+)/, '$1-$2');
+    } else if (phoneNum.length <= 10) {
+        // Format as XXX-XXX-XXXX
+        phoneNum = phoneNum.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
+    } else if (phoneNum.length <= 15) {
+        // Format as +CC-XXX-XXX-XXXX (International format)
+        phoneNum = phoneNum.replace(/(\d{1,4})(\d{3})(\d{3})(\d{4})/, '+$1-$2-$3-$4');
+    } else {
+        // If more than 15 digits, return the number without formatting
+        phoneNum = phoneNum.substring(0, 15); // Limit to 15 digits
+    }
+
+    // Update the input field with the formatted phone number
+    Phone.value = phoneNum;
+}
+
+// blur functiuons
+function blurFirstName() {
 
 
     //1) Create variable
@@ -61,9 +117,11 @@ function validateFirstName() {
     let errorMessages = "";
 
     //2) read value from HTML
-    const firstname = document.getElementById("FirstName").value.trim();
+    const firstname = FirstName.value.trim();
     
-    document.getElementById("fname").innerHTML = "";
+    fname.innerHTML = "";
+    fname.classList.remove('tip')
+    fname.classList.add('warning')
 
     //3) Do validation
     if (firstname === null || firstname === "" ) {
@@ -74,31 +132,26 @@ function validateFirstName() {
         errorMessages += "<p>Invalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
     } else {
         validFirstName = true;
-        
-    }
-
-    if (validFirstName) {
-        console.log("First name valid")
-    } else {
-        console.log("First name is invalid")
     }
 
     //4) Send error message to HTML
-    document.getElementById("fname").innerHTML = errorMessages || '';
+    fname.innerHTML = errorMessages || '';
 
     //5) return status of each field
     return validFirstName;
 }
 
-function validateLastName() {
+function blurLastName() {
 
     // initialize values for validation
     let validLastName = false;
     let errorMessages = "";
 
-    const lastName = document.getElementById('LastName').value.trim();
+    const lastName = LastName.value.trim();
 
-    document.getElementById("lname").innerHTML = "";
+    lname.innerHTML = "";
+    lname.classList.remove('tip')
+    lname.classList.add('warning')
     
     if (lastName === null || lastName === "") {
         errorMessages += "<p>The last name is required.</p>";
@@ -110,29 +163,27 @@ function validateLastName() {
         validLastName = true;
     }
 
-    if (validLastName) {
-        console.log("Last name is valid");
-    } else {
-        console.log("Last name is invalid");
-    }
-
-    document.getElementById("lname").innerHTML = errorMessages || '';
+    lname.innerHTML = errorMessages || '';
 
     return validLastName;
 }
 
-function validateEmail() {
+function blurEmail() {
     
     // initialize values for validation
     let validEmail = false;
     let errorMessages = ""; // set errors to initially be empty
 
     // read value from html
-    const userEmail = document.getElementById("Email").value.trim();
+    const userEmail = Email.value.trim();
+
+    email.innerHTML = "";
+    email.classList.remove('tip')
+    email.classList.add('warning')
 
     const atpos = userEmail.indexOf("@");
     const dotpos = userEmail.lastIndexOf(".")
-    // validate email
+    // blur email
     if (userEmail === "" || userEmail === null) {
         errorMessages += "<p>An email is required.</p>";
     } else if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= userEmail.length) {
@@ -141,62 +192,73 @@ function validateEmail() {
         validEmail = true;
     }
 
-    document.getElementById("email").innerHTML = errorMessages || '';
+    email.innerHTML = errorMessages || '';
 
     // return status
     return validEmail;
 
 }
 
-function validatePhone() {
-
-    var numbers = /^[0-9]+$/;
-    // initialize variables
+// NEED TO UPDATE THIS
+function blurPhone() {
+    const phoneRegex = /^(?:\+?\d{1,3}-)?\d{3}-\d{3}-\d{4}$/; // Match format with dashes
     let validPhone = false;
     let errorMessages = "";
 
-    // grab data from HTML
-    const phone = document.getElementById('Phone').value.trim();
+    // Grab data from HTML
+    let phoneNum = Phone.value.trim();
 
-    // validate phone
+    phone.innerHTML = "";
+    phone.classList.remove('tip');
+    phone.classList.add('warning');
 
-    if (!phone.match(numbers) || phone.length > 15 || phone === null || phone === "") {
-        errorMessages += "<p>Invalid phone number.</p>";
+    // Ensure phone number matches the expected format with dashes
+    if (phoneNum.length >= 10 && phoneNum.length <= 15) {
+        if (phoneRegex.test(phoneNum)) {
+            validPhone = true;
+        } else {
+            errorMessages += "<p>Invalid phone number format. Please use dashes (-) as separators.</p>";
+        }
     } else {
-        validPhone = true;
+        errorMessages += "<p>Phone number must be between 10 and 15 digits.</p>";
     }
 
-    document.getElementById('phone').innerHTML = errorMessages || '';
-    
-    return validPhone;
+    // Display error message if validation fails
+    phone.innerHTML = errorMessages || '';
 
+    return validPhone;
 }
 
-function validateUserName() {
+
+
+function blurUserName() {
 
     // intialize variables for error and validation
     let validUserName = false;
     let errorMessages = "";
 
     // grab values from html
-    const username = document.getElementById("Username").value.trim();
+    const userName = Username.value.trim();
 
-    // validate username
+    username.innerHTML = "";
+    username.classList.remove('tip')
+    username.classList.add('warning')
+    // blur username
 
-    if (username === "" || username === null) {
+    if (userName === "" || userName === null) {
         errorMessages += "<p>Username is required.</p>";
-    } else if (username.length > 12) {
+    } else if (userName.length > 12) {
         errorMessages += "<p>Username cannot be longer than 12 characters.</p>";
     } else {
         validUserName = true;
     }
 
-    document.getElementById("username").innerHTML = errorMessages || '';
+    username.innerHTML = errorMessages || '';
 
     return validUserName;
 }
 
-function validatePassword() {
+function blurPassword() {
 
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{1,7}$/;
 
@@ -206,48 +268,57 @@ function validatePassword() {
     let errorMessages = "";
 
     // grab information via HTML
-    const password = document.getElementById("Password").value.trim();
+    const passWord = Password.value.trim();
 
-    // validate password
-    if (password === "" || password === null) {
+    password.innerHTML = "";
+    password.classList.remove('tip')
+    password.classList.add('warning')
+
+    // blur password
+    if (passWord === "" || passWord === null) {
         errorMessages += "<p>Password is required.</p>"
-    } else if (password > 7) {
+    } else if (passWord > 7) {
         errorMessages += "<p>Password cannot be greater than 7 characters.</p>"
-    } else if (!password.match(regex)) {
+    } else if (!passWord.match(regex)) {
         errorMessages += "<p>Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</p>";
     } else {
         validPassword = true;
     }
 
-    document.getElementById("password").innerHTML = errorMessages || '';
+    
+    password.innerHTML = errorMessages || '';
 
     return validPassword;
     
 }
 
-function validateAddress() {
+function blurAddress() {
 
     // initialize variables
     let validAddress = false;
     let errorMessages = "";
 
     // grab values from HTML
-    const address = document.getElementById("Address").value.trim();
+    const addressValue = Address.value.trim();
 
-    // validate address
+    address.innerHTML = "";
+    address.classList.remove('tip')
+    address.classList.add('warning')
 
-    if (address === "" || address === null) {
+    // blur address
+
+    if (addressValue === "" || addressValue === null) {
         errorMessages += "<p>Address is required.</p>"
     } else {
         validAddress = true;
     }
 
-    document.getElementById("address").innerHTML = errorMessages || '';
+    address.innerHTML = errorMessages || '';
 
     return validAddress;
 }
 
-function validateCountry() {
+function blurCountry() {
 
 
     // initialize variables
@@ -255,60 +326,70 @@ function validateCountry() {
     let errorMessages = "";
 
     // grab data from HTML
-    const country = document.getElementById("Country").value.trim();
+    const countryValue = CountrySelect.value.trim();
 
-    // validate country
-    if (country === "" || country === null) {
+    country.innerHTML = ""
+    country.classList.remove('tip')
+    country.classList.add('warning')
+
+
+    // blur country
+    if (countryValue === "" || countryValue === null) {
         errorMessages += "<p>Country is required.</p>";
     } else {
         validCountry = true;
     }
 
-    document.getElementById('country').innerHTML = errorMessages || '';
+    country.innerHTML = errorMessages || '';
 
     return validCountry;
 
 }
 
-function validateCity() {
+function blurCity() {
 
     // initialize varialbes
     let validCity = false;
     let errorMessages = "";
 
     // grab data from HTML 
-    const city = document.getElementById("City").value.trim();
+    const cityValue = City.value.trim();
 
-    // validate city
+    city.innerHTML = "";
+    city.classList.remove('tip')
+    city.classList.add('warning')
+    // blur city
 
-    if (city === "" || city === null) {
+    if (cityValue === "" || cityValue === null) {
         errorMessages += "<p>City is required.</p>";
     } else {
         validCity = true;
     }
 
-    document.getElementById("city").innerHTML = errorMessages || '';
+    city.innerHTML = errorMessages || '';
 
     return validCity;
 }
 
-function validateState() {
+function blurState() {
 
     // intialize variables
     let validState = false;
     let errorMessages = "";
 
-    const country = document.getElementById('Country').value.trim();
+    const country = CountrySelect.value.trim();
+
+    state.innerHTML = "";
+    state.classList.remove('tip')
+    state.classList.add('warning')
 
     if (country === "USA") {
         
         // grab data from HTML
-        const state = document.getElementById('State').value.trim();
+        const stateValue = StateSelect.value.trim();
 
-        console.log(state)
-
-        // validate state
-        if (state === "" || state === null) {
+        // blur state
+        if (stateValue === "" || stateValue === null) {
             errorMessages += "<p>State is required.</p>";
         } else {
             validState = true;
@@ -318,28 +399,32 @@ function validateState() {
         validState = true;
     }
 
-    document.getElementById('state').innerHTML = errorMessages || '';
+    state.innerHTML = errorMessages || '';
 
     return validState;
     
 }
 
-function validateZipCode() {
+function blurZipCode() {
 
     let validZipCode = false;
     let errorMessages = "";
 
 
-    const country = document.getElementById('Country').value.trim();
-    const zipcode = document.getElementById('Zipcode').value.trim();
+    const country = CountrySelect.value.trim();
+    const zipcodeValue = ZipCode.value.trim();
+
+    zipcode.innerHTML = "";
+    zipcode.classList.remove('tip')
+    zipcode.classList.add('warning')
     
     if (country === "USA") {
 
         const zipcodePattern = /^\d{5}$/;
 
-        if (zipcode === "" || zipcode === null) {
+        if (zipcodeValue === "" || zipcodeValue === null) {
             errorMessages += "<p>Zipcode is required for USA.</p>";
-        } else if (!zipcodePattern.test(zipcode)) {
+        } else if (!zipcodePattern.test(zipcodeValue)) {
             errorMessages += "<p>Please enter a valid 5-digit zipcode.</p>";
         } else {
             validZipCode = true;
@@ -349,7 +434,76 @@ function validateZipCode() {
         validZipCode = true;
     }
 
-    document.getElementById('zipcode').innerHTML = errorMessages || '';
+    zipcode.innerHTML = errorMessages || '';
 
     return validZipCode;
+}
+
+
+// focus functions
+
+function focusFname() {
+    fname.classList.remove('warning');
+    fname.classList.add('tip');
+    fname.innerHTML = 'Please enter your first name (max 20 characters).';
+}
+
+function focusLname() {
+    lname.classList.remove('warning');
+    lname.classList.add('tip');
+    lname.innerHTML = 'Please enter your last name (max 50 characters).';
+}
+
+function focusEmail() {
+    email.classList.remove('warning');
+    email.classList.add('tip');
+    email.innerHTML = 'Enter a valid email address (e.g., name@example.com).';
+}
+
+function focusPhone() {
+    phone.classList.remove('warning');
+    phone.classList.add('tip');
+    phone.innerHTML = 'Enter your phone number (numbers only, max 15 digits).';
+}
+
+function focusUsername() {
+    username.classList.remove('warning');
+    username.classList.add('tip');
+    username.innerHTML = 'Choose a username (max 12 characters).';
+}
+
+function focusPassword() {
+    password.classList.remove('warning');
+    password.classList.add('tip');
+    password.innerHTML = 'Password must be at least 7 characters and include uppercase, lowercase, a number, and a special character.';
+}
+
+function focusAddress() {
+    address.classList.remove('warning');
+    address.classList.add('tip');
+    address.innerHTML = 'Enter your street address (e.g., 123 Main St).';
+}
+
+function focusCity() {
+    city.classList.remove('warning');
+    city.classList.add('tip');
+    city.innerHTML = 'Enter your city of residence.';
+}
+
+function focusCountry() {
+    country.classList.remove('warning');
+    country.classList.add('tip');
+    country.innerHTML = 'Select your country from the dropdown list.';
+}
+
+function focusState() {
+    state.classList.remove('warning');
+    state.classList.add('tip');
+    state.innerHTML = 'If in the USA, select your state from the dropdown list.';
+}
+
+function focusZipcode() {
+    zipcode.classList.remove('warning');
+    zipcode.classList.add('tip');
+    zipcode.innerHTML = 'Enter your 5-digit ZIP code (only for USA).';
 }

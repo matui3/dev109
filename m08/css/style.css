@@ -122,6 +122,16 @@ p {
     padding-bottom: 10px;
 }
 
+#input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px 5px;
+    box-sizing: border-box;
+}
+
 /* Small screen - acts like the app would */
 @media only screen and (max-width: 500px) {
     body {

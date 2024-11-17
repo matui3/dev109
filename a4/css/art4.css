@@ -1,13 +1,19 @@
 #errorMessages, .feedback {
     color: red;
     font-weight: bold;
-    font-size: 0.6em;
     /* margin-top: 5px; */
 }
 
 .feedback {
     max-height: 100px;
     overflow-y: auto;
+    display: flex;
+    align-items: center;
+    font-size: 0.6em;
+    padding-left: 30px;
+    /* height: 30px; */
+    background-size: 20px 20px;
+    background-position: left center;
 }
 
 
@@ -86,17 +92,11 @@ body {
 .feedback.warning {
     background-image: url('../images/warning.png');
     background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 30px;
-    background-size: 20px 20px;
 }
 
 .feedback.tip {
     background-image: url('../images/tip.png');
     background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 30px;
-    background-size: 20px 20px;
 }
 
 input[type="submit"] {

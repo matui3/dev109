@@ -84,7 +84,7 @@ ZipCode.addEventListener('focus', focusZipcode);
 function phoneInput() {
     let phoneNum = Phone.value;
 
-    // Remove all non-digit characters
+    // Remove all non-digit characters in the string. the /g is global and \D is the inverse of \d (any digit)
     phoneNum = phoneNum.replace(/\D/g, '');
 
     // Format phone number based on the length of the digits
@@ -92,13 +92,13 @@ function phoneInput() {
         // No dashes needed for the first 3 digits
         phoneNum = phoneNum;
     } else if (phoneNum.length <= 6) {
-        // Format as XXX-XXXX
-        phoneNum = phoneNum.replace(/(\d{3})(\d+)/, '$1-$2');
+        // group this as the first 3 digits, then 1 more digits where $1 represents first set, $2 is second
+        phoneNum = phoneNum.replace(/(\d{3})(\d+)/, '$1-$2'); 
     } else if (phoneNum.length <= 10) {
-        // Format as XXX-XXX-XXXX
+        // similar but not with a second set as a group of 3 and anything beyond is the third group
         phoneNum = phoneNum.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
     } else if (phoneNum.length <= 15) {
-        // Format as +CC-XXX-XXX-XXXX (International format)
+        // for international numbers you can use 1, 2, 3, 4
         phoneNum = phoneNum.replace(/(\d{1,4})(\d{3})(\d{3})(\d{4})/, '+$1-$2-$3-$4');
     } else {
         // If more than 15 digits, return the number without formatting
@@ -230,8 +230,6 @@ function blurPhone() {
     return validPhone;
 }
 
-
-
 function blurUserName() {
 
     // intialize variables for error and validation
@@ -278,7 +276,7 @@ function blurPassword() {
     // blur password
     if (passWord === "" || passWord === null) {
         errorMessages += "<p>Password is required.</p>"
-    } else if (passWord > 7) {
+    } else if (passWord.length > 7) {
         errorMessages += "<p>Password cannot be greater than 7 characters.</p>"
     } else if (!passWord.match(regex)) {
         errorMessages += "<p>Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</p>";

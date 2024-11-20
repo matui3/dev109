@@ -3,6 +3,7 @@ let dotSize = 8
 const dots = []
 
 
+const mybutton = document.getElementById('clean')
 mybutton.addEventListener("click", (event) => {
     var elements = document.getElementsByTagName("div");
     for (index = elements.length - 1; index >= 0; index--) {

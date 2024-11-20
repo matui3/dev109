@@ -3,22 +3,17 @@ let dotSize = 8
 const dots = []
 
 
-const mybutton = document.getElementById('clean')
 mybutton.addEventListener("click", (event) => {
-
-    var element = document.getElementsByTagName("div");
-    // console.log(element)
-    for (index = element.length - 1; index >= 0; index--) {
-        if (!element[index].classList.contains('container')) {
-            element[index].parentNode.removeChild(element[index]);
+    var elements = document.getElementsByTagName("div");
+    for (index = elements.length - 1; index >= 0; index--) {
+        if (!elements[index].classList.contains('container') &&
+            elements[index].id !== 'colorText') {
+            elements[index].parentNode.removeChild(elements[index]);
         }
-        
     }
-
-    // Let us stop the propagation of events
-
     event.stopPropagation();
 });
+
 
 const increaseButton = document.getElementById('increase')
 const decreaseButton = document.getElementById('decrease')

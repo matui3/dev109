@@ -38,11 +38,12 @@ function resetSlideshowTimer() {
 }
 
 showSlide();
+startSlideshow();
 
 function startSlideshow() {
     slideshowInterval = setInterval(() => {
         next();
-    }, 3000)
+    }, 5000)
 }
 
 

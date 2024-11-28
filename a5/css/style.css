@@ -1,14 +1,104 @@
-* {
-    box-sizing: border-box
+body {
+    background-image: url('../imgs/nature-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100%;
+    margin: 0;
 }
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80%; /* Full height of the viewport */
+    width: 80%; /* Full width of the viewport */
+    transform: translate(-50%, -50%);
+    display: flex; /* Flexbox to center items */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border: 1px solid white /* Debugging border */
 }
 
+/* Hide all slides initially */
 .mySlides {
     display: none;
+}
+
+/* Image styling */
+.animal {
+    max-width: 80vh; /* Scale image to container width */
+    max-height: 90vh; /* Limit height */
+    width: 100%; /* Ensure the image takes up available space */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Removes extra space below the image */
+    margin: 0; /* Removes default margin */
+    border: 2px solid white;
+}
+
+/* Navigation buttons */
+#prev,
+#next {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 10; /* Ensure buttons are on top */
+}
+
+/* Right button (next) */
+#next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Left button (prev) */
+#prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Button hover effect */
+.prev:hover,
+.next:hover {
+    background-color: rgba(52, 138, 236, 0.8);
+}
+
+footer {
+    height: 5%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .container {
+    display: flex; /* Ensure the items inside the container are in a row */
+    gap: 20px; /* Adds space between the validation images */
+}
+
+footer p {
+    margin: 0; /* Remove default margin on <p> tags */
+}
+
+footer a {
+    color: white; /* Make sure the links are visible */
+    text-decoration: none; /* Remove underline */
 }

@@ -1,30 +1,56 @@
 let slideIndex = 1;
+let slideshowInterval;
 
-function plusSlide(n) {
+let slides = document.getElementsByClassName("mySlides")
 
-}
+function showSlide() {
+    // Show the current slide
+    if (slideIndex > slides.length) {
+        slideIndex = 1; // Wrap around to first slide
+    }
+    if (slideIndex < 1) {
+        slideIndex = slides.length; // Wrap around to last slide
+    }
 
-function currentSlide(n) {
+    // let dots = document.getElementsByClassName("dot")
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"
+    }
 
-}
-
-function showSlides(n) {
-
+    slides[slideIndex-1].style.display = "block";
 }
 
 function next() {
-    if (slideIndex > 5) {
-        slideIndex = 1;
-    }
+    slideIndex++;
+    showSlide(slideIndex);
+    resetSlideshowTimer();
 }
 
-function back() {
-    if (slideIndex < 1) {
-        slideIndex = 5;
-    }
+function prev() {
+    slideIndex--;
+    showSlide(slideIndex);
+    resetSlideshowTimer();
 }
 
-const nextButton;
-const prevButton;
+function resetSlideshowTimer() {
+    clearInterval(slideshowInterval);
+    startSlideshow();
+}
 
+showSlide();
+startSlideshow();
+
+function startSlideshow() {
+    slideshowInterval = setInterval(() => {
+        next();
+    }, 5000)
+}
+
+
+const nextButton = document.getElementById("next")
+const prevButton = document.getElementById("prev")
+
+
+nextButton.addEventListener('click', next);
+prevButton.addEventListener('click', prev);
 

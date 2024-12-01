@@ -12,4 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
             audioElement.muted = false;
         }
     });
+
+    // Set the audio to the correct mute state on load
+    const isMuted = localStorage.getItem('isMuted') === 'true';
+    audioElement.muted = isMuted;  // Apply the mute state from localStorage on page load
 });

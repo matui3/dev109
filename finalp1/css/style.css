@@ -73,6 +73,15 @@ header {
     margin-left: auto;
 }
 
+button.mute-button {
+    float: right;
+}
+
+button.mute-button img {
+    width: 32px;
+    height: 32px;
+}
+
 .portfolio-description {
     background-color: #FFFFFF;
     border: 1px solid #284B63;

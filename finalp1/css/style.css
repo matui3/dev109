@@ -282,6 +282,15 @@ header {
     align-items: flex-start;
 }
 
+#errorMessages,
+.feedback {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    /* margin-top: 5px; */
+}
+
 .column {
     width: 45%;
     margin: 0 2.5%;

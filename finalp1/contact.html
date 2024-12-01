@@ -40,17 +40,22 @@
         <div class="content-container">
             <div class="contact-form">
                 <h2>Contact Us</h2>
-                <form class="form-container" action="thankyou.html" method="get" name="myContact">
+                <form id="myForm" class="form-container" action="thankyou.html" method="get" name="myContact">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name">
+                    <div class="feedback" id="Name"></div>
 
                     <label for="subject">Email:</label>
-                    <input type="text" id="subject" name="subject" required>
+                    <input type="text" id="email" name="email">
+                    <div class="feedback" id="Email"></div>
 
                     <label for="message">Comment:</label>
-                    <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                    <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                    <div class="feedback" id="Message"></div>
+                    <div id="errorMessages"></div>
 
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" value="Submit">
+                    <div class="feedback" id="submiterror"></div>
                 </form>
             </div>
         </div>
@@ -81,7 +86,7 @@
             <iframe src="audio.html" name="audio-frame"></iframe>
         </div>
     </div>
-
+    <script src="js/contactValidation.js"></script>
 </body>
 
 </html>

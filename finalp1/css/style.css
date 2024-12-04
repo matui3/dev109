@@ -13,10 +13,10 @@ body {
     color: #353535;
 }
 
+/* Container for all content */
 #container {
     background-color: #FFFFFF;
     border-radius: 1%;
-    /* width: 90%; */
     margin: 10px 5px;
 }
 
@@ -61,6 +61,7 @@ header {
     color: #353535;
 }
 
+/* Search bar styling */
 #search-container {
     margin-top: 20px;
     margin-left: 20px;
@@ -73,6 +74,7 @@ header {
     margin-left: auto;
 }
 
+/* mute button styling */
 button.mute-button {
     float: right;
 }
@@ -82,6 +84,17 @@ button.mute-button img {
     height: 32px;
 }
 
+/* main content in each page styling */
+.content-container,
+.module-container {
+    margin: 30px;
+    padding: 5px;
+    border: 1px solid #3C6E71;
+    border-radius: 5px;
+
+}
+
+/* Home page portfolio styling */
 .portfolio-description {
     background-color: #FFFFFF;
     border: 1px solid #284B63;
@@ -99,6 +112,7 @@ button.mute-button img {
     margin-bottom: 15px;
 }
 
+/* About Me page styling */
 .about-me-card {
     background-color: #FFFFFF;
     border: 1px solid #284B63;
@@ -122,6 +136,7 @@ button.mute-button img {
     line-height: 1.6;
 }
 
+/* Courses Page Styling */
 .text-card {
     width: 100%;
     max-width: 600px;
@@ -130,7 +145,6 @@ button.mute-button img {
     border-radius: 10px;
     border: 2px solid #284B63;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, Helvetica, sans-serif;
     color: #353535;
 }
 
@@ -140,123 +154,21 @@ button.mute-button img {
     margin-top: 0;
 }
 
+/* QA portfion of card for courses */
 .qa-card {
-    background-color: #f9f9f9; /* Light background for questions/answers */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .qa-card h4 {
-    font-size: 18px; /* Set the font size for the question */
-    font-weight: bold; /* Make the question bold */
-    margin-bottom: 10px; /* Space between question and answer */
-    color: #353535; /* Set color for the question */
-}
-
-.content-container, .module-container {
-    margin: 30px;
-    padding: 5px;
-    border: 1px solid #3C6E71;
-    border-radius: 5px;
-    
-}
-
-.module-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-
-.content-title {
+    font-size: 18px;
+    font-weight: bold;
     margin-bottom: 10px;
-    text-align: center;
-    width: 500px;
-    transform: translateX(3%);
-}
-
-.stack-container {
-    width: 320px;
-    margin: 50px auto;
-    position: relative;
-    height: 300px;
-}
-
-/* Card container */
-.card {
-    padding: 50px;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    position: absolute;
-    width: 250px;
-    height: 150px;
-    transition: transform 0.5s ease-in-out;
-    z-index: 1; /* Ensure cards stack on top of each other */
-    border: 1px solid #ccc;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Image styling */
-.card-img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-    user-select: none;
-}
-/* Text styling */
-.card-text {
-    display: block;
-    padding: 10px;
-    text-align: center;
     color: #353535;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    user-select: none;
 }
 
-.card-text:hover {
-    color: #3C6E71;
-}
-
-.contact-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 20%;
-}
-
-.form-container label,
-.form-container input,
-.form-container textarea,
-.form-container button {
-    margin: 0;
-    padding: 5px;
-    /* border: 1px solid #ccc */
-}
-
-.form-container label {
-    text-align: left;
-    font-weight: bold;
-}
-
-
-
-/* Artifact items styling */
+/* Artifact page styling */
 .artifacts {
     margin-top: 10px;
     display: flex;
@@ -267,7 +179,7 @@ button.mute-button img {
 .artifactbox {
     box-shadow: 0 2px 4px #353535;
     padding: 10px;
-    max-width: 400px; /* Width of each artifact box */
+    max-width: 400px;    /* Width of each artifact box */
     border: 0px solid #3C6E71;
     margin: 0 10px; /* Space between artifact boxes */
     display: flex;
@@ -282,29 +194,111 @@ button.mute-button img {
     height: 100px;
 }
 
-/* Validation page styling */
-#validation {
-    margin-top: 20px;
-    overflow: hidden;
+/* Start of module page styling */
+/* more styling specific to modules */
+.module-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
-#errorMessages,
-.feedback {
-    color: red;
+/* Module text/title above cards */
+.content-title {
+    margin-bottom: 10px;
+    text-align: center;
+    width: 500px;
+    transform: translateX(3%);
+}
+
+/* style for the stack of cards */
+.stack-container {
+    width: 320px;
+    margin: 50px auto;
+    position: relative;
+    height: 300px;
+}
+
+/* CSS to make each module look like a card */
+.card {
+    padding: 50px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    transition: transform 0.5s ease-in-out; /* creates a transition on click */
+    z-index: 1; /* Ensure cards stack on top of each other */
+    border: 1px solid #ccc;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image styling on each module card*/
+.card-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    user-select: none; /* noticing that the image kept getting highlighted when selected, used this to remove that */
+}
+
+/* Text styling on each module card*/
+.card-text {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #353535;
+    font-size: 16px;
     font-weight: bold;
-    font-size: 12px;
-    margin: 0;
-    /* margin-top: 5px; */
+    text-decoration: none; /* removes the underline on hyperlinks */
+    user-select: none; /* noticing that the image kept getting highlighted when selected, used this to remove that */
 }
 
+/* When hovering over text/link for modules*/
+.card-text:hover {
+    color: #3C6E71;
+}
+
+/* styling for container of contact form */
+.contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Contact form styling */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 20%;
+}
+
+.form-container label,
+.form-container input,
+.form-container textarea,
+.form-container button {
+    margin: 0;
+    padding: 5px;
+}
+
+.form-container label {
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Hobby Projects page styling */
 .project-container {
     display: flex;
     flex-wrap: wrap;
 }
 
+/* Style for contents inside each box/block element */
 .project-box {
     border: 1px solid #284B63;
     border-radius: 8px;
@@ -338,6 +332,24 @@ button.mute-button img {
     height: 200px;
 }
 
+/* Validation page styling */
+#validation {
+    margin-top: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#errorMessages,
+.feedback {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    /* margin-top: 5px; */
+}
+
 /* footer styling */
 #footer { 
     background: #284B63;
@@ -367,6 +379,7 @@ button.mute-button img {
     clear: both; 
 }
 
+/* Style for background audio (does not display */
 .audio-container {
     display: none;
 }

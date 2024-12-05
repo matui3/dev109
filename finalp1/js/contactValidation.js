@@ -1,3 +1,5 @@
+// Similar structure to article #5
+
 function isValid() {
     
     if (blurName() && blurEmail()) {
@@ -10,7 +12,6 @@ function isValid() {
 }
 
 const form = document.getElementById('myForm')
-
 form.addEventListener('submit', isValid)
 
 const nameInput = document.getElementById('name');

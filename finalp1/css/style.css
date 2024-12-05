@@ -136,6 +136,10 @@ button.mute-button img {
     line-height: 1.6;
 }
 
+.codingGIF {
+    width: 100%;
+}
+
 /* Courses Page Styling */
 .text-card {
     width: 100%;

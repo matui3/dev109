@@ -1,10 +1,37 @@
-function isValid() {
-    if (blurFirstName() && blurLastName() && blurEmail() && blurPhone() && blurUserName() && blurPassword() && blurAddress() && blurCountry() && blurState() && blurCity() && blurZipCode()) {
-        return true;
-    }  else {
-        document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
+function isValid(event) {
+    // Perform validation
+    const isFirstNameValid = blurFirstName();
+    const isLastNameValid = blurLastName();
+    const isEmailValid = blurEmail();
+    const isPhoneValid = blurPhone();
+    const isUserNameValid = blurUserName();
+    const isPasswordValid = blurPassword();
+    const isAddressValid = blurAddress();
+    const isCountryValid = blurCountry();
+    const isStateValid = blurState();
+    const isCityValid = blurCity();
+    const isZipCodeValid = blurZipCode();
+
+    // Check overall form validity
+    if (
+        isFirstNameValid &&
+        isLastNameValid &&
+        isEmailValid &&
+        isPhoneValid &&
+        isUserNameValid &&
+        isPasswordValid &&
+        isAddressValid &&
+        isCountryValid &&
+        isStateValid &&
+        isCityValid &&
+        isZipCodeValid
+    ) {
+        return true; // Form is valid
+    } else {
+        // Prevent default submission behavior
         event.preventDefault();
-        return false;
+        document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
+        return false; // Form is invalid
     }
 }
 
@@ -35,6 +62,8 @@ const city = document.getElementById('city')
 const country = document.getElementById('country')
 const state = document.getElementById('state')
 const zipcode = document.getElementById('zipcode')
+
+
 
 CountrySelect.addEventListener('change', function() {
     if (CountrySelect.value === "USA") {
@@ -132,7 +161,7 @@ function blurFirstName() {
     } else if (firstname.match("^[a-zA-Z ,.'-]+$")===null) {
         errorMessages += "<p>Invalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
     } else {
-        document.getElementById('fname') .style.backgroundImage = none;
+        document.getElementById('fname').style.backgroundImage = "";
         validFirstName = true;
     }
 
@@ -162,7 +191,7 @@ function blurLastName() {
     } else if (lastName.match("^[a-zA-Z ,.'-]+$") === null) {
         errorMessages += "<p>Invalid character in first name (accepts only A-Z, a-z, and ,.'-)</p>";
     } else {
-        lname.style.display = none;
+        lname.style.display = "";
         validLastName = true;
     }
 

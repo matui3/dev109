@@ -1,18 +1,22 @@
 // Similar structure to article #5
 
-function isValid() {
-    
-    if (blurName() && blurEmail()) {
+function isValid(event) {
+    const validFirstName = blurName();
+    const validEmail = blurEmail();
+    const validComment = blurComment();
+    if (validFirstName && validEmail && validComment) {
         return true;
     } else {
-        document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
         event.preventDefault();
+        document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
         return false;
     }
 }
 
 const form = document.getElementById('myForm')
-form.addEventListener('submit', isValid)
+form.addEventListener('submit', (event) => {
+    isValid(event);
+})
 
 const nameInput = document.getElementById('name');
 const email = document.getElementById('email');

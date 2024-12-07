@@ -1,9 +1,14 @@
 // Similar structure to article #5
 
 function isValid(event) {
+
     const validFirstName = blurName();
     const validEmail = blurEmail();
     const validComment = blurComment();
+    
+    console.log(validFirstName);
+    console.log(validEmail);
+    console.log(validComment);
     if (validFirstName && validEmail && validComment) {
         return true;
     } else {
@@ -83,7 +88,7 @@ function blurEmail() {
     } else if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= userEmail.length) {
         errorMessages += "<p>Invalid email.</p>";
     } else {
-        email.style.display = none;
+        email.style.display = "";
         validEmail = true;
     }
 

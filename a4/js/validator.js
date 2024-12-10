@@ -1,19 +1,42 @@
 function isValid(event) {
+    console.log("Starting form validation...");
+
     // Perform validation
     const isFirstNameValid = blurFirstName();
+    console.log("First Name Valid:", isFirstNameValid);
+
     const isLastNameValid = blurLastName();
+    console.log("Last Name Valid:", isLastNameValid);
+
     const isEmailValid = blurEmail();
+    console.log("Email Valid:", isEmailValid);
+
     const isPhoneValid = blurPhone();
+    console.log("Phone Valid:", isPhoneValid);
+
     const isUserNameValid = blurUserName();
+    console.log("User Name Valid:", isUserNameValid);
+
     const isPasswordValid = blurPassword();
+    console.log("Password Valid:", isPasswordValid);
+
     const isAddressValid = blurAddress();
+    console.log("Address Valid:", isAddressValid);
+
     const isCountryValid = blurCountry();
+    console.log("Country Valid:", isCountryValid);
+
     const isStateValid = blurState();
+    console.log("State Valid:", isStateValid);
+
     const isCityValid = blurCity();
+    console.log("City Valid:", isCityValid);
+
     const isZipCodeValid = blurZipCode();
+    console.log("Zip Code Valid:", isZipCodeValid);
 
     // Check overall form validity
-    if (
+    const isFormValid =
         isFirstNameValid &&
         isLastNameValid &&
         isEmailValid &&
@@ -24,16 +47,22 @@ function isValid(event) {
         isCountryValid &&
         isStateValid &&
         isCityValid &&
-        isZipCodeValid
-    ) {
+        isZipCodeValid;
+
+    console.log("Overall Form Valid:", isFormValid);
+
+    if (isFormValid) {
+        console.log("Form validation passed.");
         return true; // Form is valid
     } else {
+        console.log("Form validation failed.");
         // Prevent default submission behavior
         event.preventDefault();
         document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
         return false; // Form is invalid
     }
 }
+
 
 
 // grab input field elements
@@ -221,7 +250,7 @@ function blurEmail() {
     } else if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= userEmail.length) {
         errorMessages += "<p>Invalid email.</p>";
     } else {
-        email.style.display = none;
+        email.style.display = "";
         validEmail = true;
     }
 
@@ -248,7 +277,7 @@ function blurPhone() {
     // Ensure phone number matches the expected format with dashes
     if (phoneNum.length >= 10 && phoneNum.length <= 15) {
         if (phoneRegex.test(phoneNum)) {
-            phone.style.display = none;
+            phone.style.display = "";
             validPhone = true;
         } else {
             errorMessages += "<p>Invalid phone number format. Please use dashes (-) as separators.</p>";
@@ -282,7 +311,7 @@ function blurUserName() {
     } else if (userName.length > 12) {
         errorMessages += "<p>Username cannot be longer than 12 characters.</p>";
     } else {
-        username.style.display = none;
+        username.style.display = "";
         validUserName = true;
     }
 
@@ -315,7 +344,7 @@ function blurPassword() {
     } else if (!passWord.match(regex)) {
         errorMessages += "<p>Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</p>";
     } else {
-        password.style.display = none;
+        password.style.display = "";
         validPassword = true;
     }
 
@@ -344,7 +373,7 @@ function blurAddress() {
     if (addressValue === "" || addressValue === null) {
         errorMessages += "<p>Address is required.</p>"
     } else {
-        address.style.display = none;
+        address.style.display = "";
         validAddress = true;
     }
 
@@ -372,7 +401,7 @@ function blurCountry() {
     if (countryValue === "" || countryValue === null) {
         errorMessages += "<p>Country is required.</p>";
     } else {
-        country.style.display = none;
+        country.style.display = "";
         validCountry = true;
     }
 

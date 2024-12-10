@@ -1,42 +1,19 @@
 function isValid(event) {
-    console.log("Starting form validation...");
-
     // Perform validation
     const isFirstNameValid = blurFirstName();
-    console.log("First Name Valid:", isFirstNameValid);
-
     const isLastNameValid = blurLastName();
-    console.log("Last Name Valid:", isLastNameValid);
-
     const isEmailValid = blurEmail();
-    console.log("Email Valid:", isEmailValid);
-
     const isPhoneValid = blurPhone();
-    console.log("Phone Valid:", isPhoneValid);
-
     const isUserNameValid = blurUserName();
-    console.log("User Name Valid:", isUserNameValid);
-
     const isPasswordValid = blurPassword();
-    console.log("Password Valid:", isPasswordValid);
-
     const isAddressValid = blurAddress();
-    console.log("Address Valid:", isAddressValid);
-
     const isCountryValid = blurCountry();
-    console.log("Country Valid:", isCountryValid);
-
     const isStateValid = blurState();
-    console.log("State Valid:", isStateValid);
-
     const isCityValid = blurCity();
-    console.log("City Valid:", isCityValid);
-
     const isZipCodeValid = blurZipCode();
-    console.log("Zip Code Valid:", isZipCodeValid);
 
     // Check overall form validity
-    const isFormValid =
+    if (
         isFirstNameValid &&
         isLastNameValid &&
         isEmailValid &&
@@ -47,21 +24,17 @@ function isValid(event) {
         isCountryValid &&
         isStateValid &&
         isCityValid &&
-        isZipCodeValid;
-
-    console.log("Overall Form Valid:", isFormValid);
-
-    if (isFormValid) {
-        console.log("Form validation passed.");
+        isZipCodeValid
+    ) {
         return true; // Form is valid
     } else {
-        console.log("Form validation failed.");
         // Prevent default submission behavior
         event.preventDefault();
         document.getElementById("submiterror").innerHTML = "<p><strong>Error Submitting — See Above</strong></p>";
         return false; // Form is invalid
     }
 }
+
 
 
 

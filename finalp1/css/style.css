@@ -239,10 +239,11 @@ button.mute-button img {
 
 /* style for the stack of cards */
 .stack-container {
-    width: 320px;
+    width: 1000px;
     margin: 50px auto;
-    position: relative;
     height: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 /* CSS to make each module look like a card */

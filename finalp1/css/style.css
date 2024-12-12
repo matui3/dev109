@@ -221,11 +221,11 @@ button.mute-button img {
 
 @keyframes moveUpDown {
     0%, 100% {
-        transform: translateY(0);
+        transform: rotate(180deg) translateY(0);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: rotate(180deg) translateY(-20px);
     }
 }
 
@@ -241,8 +241,9 @@ button.mute-button img {
 .stack-container {
     width: 320px;
     margin: 50px auto;
-    position: relative;
     height: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 /* CSS to make each module look like a card */

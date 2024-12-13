@@ -281,7 +281,6 @@ button.mute-button img {
     color: #353535;
     font-size: 16px;
     font-weight: bold;
-    text-decoration: none; /* removes the underline on hyperlinks */
     user-select: none; /* noticing that the image kept getting highlighted when selected, used this to remove that */
 }
 
